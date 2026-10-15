@@ -92,33 +92,90 @@ export const GitHubExportModal: React.FC<GitHubExportModalProps> = ({ isOpen, on
             </div>
           </div>
 
-          {/* Auto Push with Personal Access Token */}
-          <div className="p-4 rounded-xl bg-[#161B22] border border-zinc-800 space-y-3">
-            <div className="flex items-center gap-2">
-              <Key className="w-4 h-4 text-emerald-400" />
-              <h3 className="text-sm font-bold text-white">
-                Method 2 · Instant Push via GitHub Token (Easiest & Automatic)
-              </h3>
+          {/* GitHub Actions CI / CD with Cache v6.1.0 */}
+          <div className="p-4 rounded-xl bg-[#161B22] border border-emerald-500/30 space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <h3 className="text-sm font-bold text-white flex items-center gap-2">
+                  <span>GitHub Actions CI & Cache Configured</span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    actions/cache@v6.1.0
+                  </span>
+                </h3>
+              </div>
+              <button
+                onClick={() => handleCopy(
+`name: CI / Build & Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: Build & Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Cache
+        uses: actions/cache@v6.1.0
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: \${{ runner.os }}-node-\${{ hashFiles('**/package.json', '**/bun.lock') }}
+          restore-keys: |
+            \${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Type Check & Lint
+        run: npm run lint
+
+      - name: Build Application
+        run: npm run build`,
+                  'ci_yaml'
+                )}
+                className="flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 border border-zinc-700 cursor-pointer transition"
+              >
+                {copiedSection === 'ci_yaml' ? (
+                  <>
+                    <Check className="w-3 h-3 text-emerald-400" />
+                    <span className="text-emerald-400">Copied Workflow!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3 h-3" />
+                    <span>Copy CI YAML</span>
+                  </>
+                )}
+              </button>
             </div>
             <p className="text-xs text-zinc-300 leading-relaxed">
-              If you don't want to manually upload files, create a quick 60-second token and paste it into the AI Studio chat. The AI will push the code to your repo automatically:
+              Workflow file <code className="text-amber-300 bg-black/40 px-1 py-0.5 rounded font-mono">.github/workflows/ci.yml</code> caches dependencies with <strong className="text-emerald-400">actions/cache@v6.1.0</strong> to speed up builds and tests on every commit:
             </p>
-            <ol className="text-xs text-zinc-400 space-y-1.5 list-decimal list-inside pl-1 font-mono">
-              <li>
-                Open{' '}
-                <a
-                  href="https://github.com/settings/tokens"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-amber-400 underline inline-flex items-center gap-1 hover:text-amber-300"
-                >
-                  github.com/settings/tokens <ExternalLink className="w-3 h-3" />
-                </a>
-              </li>
-              <li>Click <strong className="text-zinc-200">Generate new token (classic)</strong></li>
-              <li>Check the <strong className="text-emerald-400">repo</strong> checkbox (Full control of private repositories)</li>
-              <li>Copy the token string (starts with <code className="text-amber-300 bg-black/40 px-1 rounded">ghp_...</code>) and send it here in chat!</li>
-            </ol>
+            <pre className="p-3 rounded-lg bg-black/60 border border-zinc-800/80 text-[11px] font-mono text-zinc-300 overflow-x-auto leading-relaxed">
+{`- name: Cache
+  uses: actions/cache@v6.1.0
+  with:
+    path: |
+      ~/.npm
+      node_modules
+    key: \${{ runner.os }}-node-\${{ hashFiles('**/package.json', '**/bun.lock') }}
+    restore-keys: |
+      \${{ runner.os }}-node-`}
+            </pre>
           </div>
 
           {/* Terminal / Git Command Option */}

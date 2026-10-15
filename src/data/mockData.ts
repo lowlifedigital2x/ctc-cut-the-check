@@ -220,7 +220,7 @@ export const PLATFORM_CONFIGS: Record<string, PlatformConfig> = {
     supportsPost: false,
     supportsAudio: false,
     monetizationTypes: ['Direct Paywall', 'Private CDN Whitelabel'],
-    ingestRtmpUrl: 'rtmp://custom.cdn.relay.net/live/',
+    ingestRtmpUrl: 'rtmp://live.omnicast.io/relay/app',
     defaultRpm: 0
   }
 };
@@ -415,7 +415,7 @@ export const INITIAL_PLATFORM_CONNECTIONS: PlatformConnection[] = [
     displayName: 'Custom RTMP Server / Whitelabel CDN',
     avatarUrl: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=120&auto=format&fit=crop&q=80',
     streamKey: 'custom_secret_key_8819',
-    rtmpUrl: 'rtmp://custom.cdn.relay.net/live/',
+    rtmpUrl: 'rtmp://live.omnicast.io/relay/app',
     isLiveActive: false,
     permissions: { live: true, publish: false, analytics: false, monetization: false },
     lastSync: '1 min ago',

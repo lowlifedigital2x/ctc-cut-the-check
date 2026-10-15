@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#141926" />
+      <stop offset="70%" stop-color="#090C14" />
+      <stop offset="100%" stop-color="#040508" />
+    </radialGradient>
+    <linearGradient id="goldBezel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A" />
+      <stop offset="35%" stop-color="#F59E0B" />
+      <stop offset="70%" stop-color="#B45309" />
+      <stop offset="100%" stop-color="#FDE68A" />
+    </linearGradient>
+    <linearGradient id="diamondSheen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#BAE6FD" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+    <radialGradient id="grooveRing" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0A0D15" />
+      <stop offset="90%" stop-color="#1E2433" />
+      <stop offset="100%" stop-color="#0A0D15" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+
+  <!-- Outer Bezel Ring -->
+  <circle cx="256" cy="256" r="216" fill="none" stroke="url(#goldBezel)" stroke-width="12" />
+  <circle cx="256" cy="256" r="202" fill="none" stroke="#222838" stroke-width="3" />
+
+  <!-- Vinyl Grooves Rings -->
+  <circle cx="256" cy="256" r="185" fill="none" stroke="#161B28" stroke-width="6" />
+  <circle cx="256" cy="256" r="165" fill="none" stroke="#1F2638" stroke-width="3" />
+  <circle cx="256" cy="256" r="145" fill="none" stroke="#161B28" stroke-width="5" />
+  <circle cx="256" cy="256" r="125" fill="none" stroke="#222838" stroke-width="3" />
+
+  <!-- Center Gold Medallion Hub -->
+  <circle cx="256" cy="256" r="105" fill="url(#bgGrad)" stroke="url(#goldBezel)" stroke-width="8" />
+
+  <!-- CTC Eagle Crest / Wings Monogram Silhouette -->
+  <path d="M 256 180 L 290 220 L 330 200 L 310 240 L 340 255 L 295 270 L 280 305 L 256 280 L 232 305 L 217 270 L 172 255 L 202 240 L 182 200 L 222 220 Z" fill="url(#goldBezel)" />
+
+  <!-- Diamond Crown Accent -->
+  <polygon points="256,155 270,172 256,182 242,172" fill="url(#diamondSheen)" />
+
+  <!-- Typography Monogram: CTC -->
+  <text x="256" y="342" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="900" font-size="34" fill="#F8FAFC" text-anchor="middle" letter-spacing="4">CTC</text>
+  <text x="256" y="365" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="12" fill="#F59E0B" text-anchor="middle" letter-spacing="3">CUT THE CHECK</text>
+
+  <!-- Center Spindle Eyelet -->
+  <circle cx="256" cy="256" r="10" fill="#04060A" stroke="url(#goldBezel)" stroke-width="3" />
+</svg>

@@ -1,0 +1,6 @@
+{
+  "summary": "Implementation plan for the complete Launch Suite in CTC CUT the check.\nFeatures a Master Launch Control Center ('Drop Day & Go-Live Command') with pre-flight checklist, T-Minus countdown sequence, 1-click multi-platform release ignition, and production deployment readiness (SEO JSON-LD, social cards, and PWA manifest).",
+  "updatedAt": "2026-10-13T15:46:28.490549746Z",
+  "requestFeedback": true,
+  "userFacing": true
+}

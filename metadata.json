@@ -1,0 +1,6 @@
+{
+  "name": "CTC CUT the check",
+  "description": "Unified creator platform to Create the content, Cut the chat (multistream), Certify the content (schedule & verify), track Content that counts, Climb the charts (audience analytics), Contact the creators (network & hire), and CUT the check (monetization).",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
